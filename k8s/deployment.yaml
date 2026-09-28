@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: fastshop
+  namespace: fastshop
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: fastshop
+
+  template:
+    metadata:
+      labels:
+        app: fastshop
+
+    spec:
+      containers:
+        - name: fastshop
+
+          image: ghcr.io/ankhang24112411-sudo/fastshop:bootstrap
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - name: http
+              containerPort: 8000
+
+          envFrom:
+            - configMapRef:
+                name: fastshop-config
+
+            - secretRef:
+                name: fastshop-secret
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+
+            limits:
+              cpu: "1"
+              memory: "768Mi"

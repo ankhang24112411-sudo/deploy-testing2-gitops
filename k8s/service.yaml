@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: fastshop-service
+  namespace: fastshop
+
+spec:
+  type: ClusterIP
+
+  selector:
+    app: fastshop
+
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
