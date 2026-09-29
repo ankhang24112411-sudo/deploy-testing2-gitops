@@ -21,7 +21,7 @@ spec:
       containers:
         - name: fastshop
 
-          image: ghcr.io/ankhang24112411-sudo/fastshop:a01e8b1a3273e69ef6b44dc6427a2895d6a65eeb
+          image: ghcr.io/ankhang24112411-sudo/fastshop:d21f0f915be862d41e766e43877b0c1084a2a0e4
           imagePullPolicy: IfNotPresent
 
           ports:
