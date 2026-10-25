@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 
@@ -20,7 +21,6 @@ spec:
     spec:
       containers:
         - name: fastshop
-
           image: ghcr.io/ankhang24112411-sudo/fastshop:e582023b1c0ddf89e0f665d7d40fad845e907eba
           imagePullPolicy: IfNotPresent
 
@@ -31,7 +31,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: fastshop-config
-
             - secretRef:
                 name: fastshop-secret
 
@@ -39,7 +38,27 @@ spec:
             requests:
               cpu: "250m"
               memory: "256Mi"
-
             limits:
               cpu: "1"
               memory: "768Mi"
+
+          startupProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8000
+            periodSeconds: 10
+            failureThreshold: 30
+
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8000
+            periodSeconds: 10
+            failureThreshold: 3
+
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8000
+            periodSeconds: 5
+            failureThreshold: 3
