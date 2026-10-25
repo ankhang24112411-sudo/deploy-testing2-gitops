@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-  name: fastshop-gitops
+  name: deploy-testing2
   namespace: argocd
 
 spec:
