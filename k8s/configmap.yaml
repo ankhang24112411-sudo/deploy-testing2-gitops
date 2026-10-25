@@ -10,7 +10,7 @@ data:
 
   DB_NAME: "Fastshop"
 
-  SPRING_DATASOURCE_URL: "jdbc:sqlserver://45.137.213.189:1433;databaseName=Fastshop;encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2"
+SPRING_DATASOURCE_URL: "jdbc:sqlserver://45.137.213.189:14335;databaseName=Fastshop;encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2"
 
   SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
 
