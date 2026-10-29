@@ -1,11 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
-
 metadata:
   name: fastshop-config
   namespace: fastshop
-
 data:
   SPRING_DATASOURCE_URL: "jdbc:sqlserver://45.137.213.189:14335;databaseName=Fastshop;encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2"
-
   SERVER_FORWARD_HEADERS_STRATEGY: "framework"
